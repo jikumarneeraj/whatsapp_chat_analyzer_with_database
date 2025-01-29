@@ -6,3 +6,4 @@ pymongo
 wordcloud
 emoji
 urlextract
+pymongo[srv]
