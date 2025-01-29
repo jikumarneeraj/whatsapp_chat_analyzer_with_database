@@ -17,7 +17,7 @@ def preprocess(data):
 
     df = pd.DataFrame({'user_message': messages, 'message_date': dates})
     filename='chat' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.csv'
-    client = MongoClient(MONGO_URI)
+    client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=10000)
     db = client["chat_data"]
     collection = db[filename]
     data = df.to_dict(orient="records")
