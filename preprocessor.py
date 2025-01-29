@@ -17,7 +17,7 @@ MONGO_URI = st.secrets["mongo"]["MONGO_URI"]
 def connect_to_mongo(retries=3, delay=5):
     for attempt in range(retries):
         try:
-            client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=20000)
+            client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=20000, tls=True)
             client.admin.command("ping")  # Test connection
             return client
         except ServerSelectionTimeoutError as e:
