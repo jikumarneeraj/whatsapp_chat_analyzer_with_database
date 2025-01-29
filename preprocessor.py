@@ -2,8 +2,9 @@ import re
 import pandas as pd
 from datetime import datetime
 from pymongo import MongoClient
+import streamlit as st
 
-MONGO_URI = "mongodb+srv://neerajkumar1092005:2bcS3cwFjCIRYy5j@cluster0.5lk0w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI = st.secrets["mongo"]["MONGO_URI"]
 
 def preprocess(data):
     pattern = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{1,2}\s-\s'
